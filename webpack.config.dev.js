@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const { merge } = require('webpack-merge');
 
@@ -22,9 +21,6 @@ module.exports = merge(common(), {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html'),
-    }),
-    new Dotenv({
-      path: `.env`,
     }),
   ],
 });
