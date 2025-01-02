@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-const Dotenv = require('dotenv-webpack');
-
 module.exports = () => ({
   entry: './src/index.tsx',
 
@@ -21,9 +18,4 @@ module.exports = () => ({
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  plugins: [
-    new Dotenv({
-      path: `./.env`,
-    }),
-  ],
 });

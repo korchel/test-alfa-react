@@ -10,7 +10,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLHRElement>, HTMLHRE
 export const Card = ({ isLiked, onRemove, onLike, children, ...props }: Props) => (
   <div
     {...props}
-    className='relative h-80 w-70
+    className='relative h-[350px] w-70
       flex flex-col items-center
       cursor-pointer
       rounded-md overflow-hidden
@@ -36,7 +36,7 @@ export const Card = ({ isLiked, onRemove, onLike, children, ...props }: Props) =
 interface CardPartProps extends DetailedHTMLProps<HTMLAttributes<HTMLHRElement>, HTMLHRElement> { }
 
 Card.Title = ({ children }: CardPartProps) => (
-  <h2 className="font-bold mx-4 text-center">{children}</h2>
+  <h2 className="font-bold mx-4 text-center min-h-12">{children}</h2>
 );
 
 Card.Body = ({ children }: CardPartProps) => (
