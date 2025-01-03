@@ -69,14 +69,14 @@ export const ProductPage = () => {
         {isLoading && <Loader className='min-h-[615px]' />}
         {product && !isLoading && (
           <>
-            <div className="w-full">
+            <div className="flex-1">
               <img
-                className="w-full aspect-square"
-                src={product.images?.[0] || ''}
+                className="mx-auto h-full"
+                src={product.images?.[0]}
                 alt={product.title}
               />
             </div>
-            <div className="bg-gray-100 p-5 flex flex-col gap-5">
+            <div className="bg-gray-100 p-5 flex flex-col gap-5 flex-1">
               <div>
                 <Title text={product.title} />
                 <div className="text-gray-600 text-sm">{product.brand}</div>

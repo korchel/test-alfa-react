@@ -11,7 +11,7 @@ export const ErrorMessage = ({ children, className }: IErrorMessage) => (
   <p
     className={cn(
       className,
-      'absolute text-xs sm:text-sm leading-tight text-danger dark:text-errorDark',
+      'absolute text-xs sm:text-sm leading-tight text-red-400',
     )}
   >
     {children}

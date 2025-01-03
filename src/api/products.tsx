@@ -2,7 +2,7 @@ import { ICreateProduct, IProduct } from "../interfaces/product";
 import { axiosInstance } from "./axiosInstance";
 
 export const fetchProducts = async (): Promise<IProduct[]> => {
-  const { data } = await axiosInstance.get<{products: IProduct[]}>('');
+  const { data } = await axiosInstance.get<{products: IProduct[]}>('?limit=100');
   return data.products;
 };
 
