@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 
-import { Container, Error, ProductForm } from "../components";
-import { Button, GoBackButton, Loader, Modal, Title } from "../components/ui";
+import { Container, EditModal, Error } from "../components";
+import { Button, GoBackButton, Loader, Title } from "../components/ui";
 import { edit, getProduct } from "../store/productsSlice";
 import { fetchProduct, updateProduct } from "../api/products";
 import { ICreateProduct } from "../interfaces/product";
@@ -59,14 +59,13 @@ export const ProductPage = () => {
   }, []);
 
   return (
-    <>
+    <Container>
       {isError && <Error />}
-      <Container className="flex my-10 shadow-lg rounded-lg overflow-hidden">
+      <div className="flex flex-col sm:flex-row shadow-lg rounded-lg overflow-hidden">
         <GoBackButton
           onClick={() => { navigate(-1); }}
           className="fixed top-32 left-10"
         />
-        
         {isLoading && <Loader className='min-h-[615px]' />}
         {product && !isLoading && (
           <>
@@ -100,13 +99,15 @@ export const ProductPage = () => {
               </Button>
             </div>
             {isModalOpen && (
-              <Modal closeModal={() => setIsModalOpen(false)}>
-                <ProductForm defaultValues={product} onSubmitFunction={onEditSubmit} />
-              </Modal>
+              <EditModal
+                closeModal={() => setIsModalOpen(false)}
+                product={product}
+                onEditSubmit={onEditSubmit}
+              />
             )}
           </>
         )}
-      </Container>
-    </>
+      </div>
+    </Container>
   );
 };
